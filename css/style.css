@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/*1. Editing the body element*/
+body{
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+}
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_links li a{
+    color:inherit; /*4. Styling for same color when visited*/
+}
+
+/*5. Styling header element that are direct children of card class*/
+.card > header
+{
+  background: #288088;
+  border: 2px solid #45ADAD;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 50px 50px 0 0;
+  z-index: 10;  
+}
+
+/*7. Editing the pricing class*/
+.pricing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+/*8. Editing the card class using flex property*/
+.card{
+    flex-basis:450px;
+}
+
+/*9. Styling gallery images*/
+.gallery img
+{
+  border: 10px #50C7C7 solid;
+  margin: 10px;
+  width: 300px;
+}
+
+/*10. Editing the gallery class*/
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/*11. Animating the logo */
+#logo{
+    animation-name: growLogo;
+    animation-duration: 5s;
+   }
+   @-webkit-keyframes growLogo{
+      from {width: 25px}
+      to {width: 475px}
+    
+      from {opacity: 0;}
+      to {opacity: 1}
+    }
+  
+   @keyframes growLogo{
+      from {width: 25px}
+      to {width: 475px}
+    
+      from {opacity: 0;}
+      to {opacity: 1}
+    }
+
+    /*Screen size for 900px*/
+    @media screen and (min-width: 900px){
+        header{/*12. Editing the header tag*/
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          position: sticky;
+          top: 0;
+        }
+        .nav_links{
+            flex-direction: row;
+          }
+           /*13. Editing the card header */
+          .card {
+            flex-basis: 250px;
+          } 
+          /*14. Challenge to modify the header position*/
+          .card header{
+            position: relative;
+          }
+      }
+
+    /*12. Reduced motion*/
+    @media (prefers-reduced-motion) {
+        #logo {
+          animation: none;
+        }
+      
+    }
+
+    @media print {
+
+        /*16. No background image*/
+        body {
+          background-image: none;
+        }
+    
+        /*17. Spaced according to the image*/
+        nav {
+            width: 100%
+          }
+        
+          .nav_links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+          }
+    
+          /*18.  */
+          .pricing {
+            display: flex;
+            align-items: flex-end;
+              flex-flow: row;
+            flex-wrap: nowrap;
+          }
+    
+           .pricing li:nth-child(even):after{
+              content: "👍";
+              
+          }
+    
+          .pricing li:nth-child(odd):before{
+            content: "\1F44D";
+        }
+    
+          /*19. Editing the card element*/
+          .card {
+            border: 2px solid #45ADDD;
+            flex-basis: 325px;
+          }
+        
+          /*20. No gallery should be visible*/
+          #gallery {
+            display: none;
+        
+          }
+    
+    
+    }
